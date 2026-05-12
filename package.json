@@ -1,0 +1,35 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.0.0",
+    "@prisma/client": "^6.0.0",
+    "axios": "^1.15.2",
+    "bcrypt": "^6.0.0",
+    "cloudinary": "^1.41.3",
+    "cors": "^2.8.6",
+    "dotenv": "^17.3.1",
+    "express": "^5.2.1",
+    "form-data": "^4.0.5",
+    "google-auth-library": "^10.6.2",
+    "jsonwebtoken": "^9.0.3",
+    "multer": "^2.1.1",
+    "multer-s3": "^3.0.0",
+    "multer-storage-cloudinary": "^4.0.0",
+    "nodemailer": "^8.0.6",
+    "@aws-sdk/client-sagemaker-runtime": "^3.0.0"
+  },
+  "devDependencies": {
+    "prisma": "^6.0.0"
+  }
+}

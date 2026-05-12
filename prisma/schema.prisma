@@ -1,0 +1,43 @@
+generator client {
+  provider      = "prisma-client-js"
+  binaryTargets = ["native", "debian-openssl-3.0.x", "debian-openssl-1.1.x"]
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id                      String    @id @default(uuid())
+  name                    String
+  email                   String    @unique
+  password                String?
+  googleId                String?   @unique
+  profilePicture          String?   @default("")
+  age                     Int?
+  clinicalContext         String?   @default("")
+  medicalConditions       String?   @default("")
+  createdAt               DateTime  @default(now())
+  isDarkMode              Boolean   @default(false)
+  resetPasswordOTP        String?
+  resetPasswordOTPExpires DateTime?
+  tokenVersion            Int       @default(0)
+
+  insuranceRecords        InsuranceRecord[]
+}
+
+model InsuranceRecord {
+  id          String   @id @default(uuid())
+  age         Int
+  sex         String
+  bmi         Float
+  children    Int
+  smoker      String
+  region      String
+  prediction  Float
+  createdAt   DateTime @default(now())
+  
+  userId      String
+  user        User     @relation(fields: [userId], references: [id])
+}
